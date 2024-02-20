@@ -44,7 +44,8 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <SearchBar onChangeHandler={this.onSearchChange} placeholder='search monsters' className='search-box'/>
+        <h1 className="app-title">Monster Rolodex</h1>
+        <SearchBar onChangeHandler={this.onSearchChange} placeholder='search monsters' className='monster-search-box'/>
         <CardList monsters={filteredMonsters}/>
       </div>
     );
