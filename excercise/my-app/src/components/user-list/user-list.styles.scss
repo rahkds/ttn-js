@@ -1,0 +1,25 @@
+  .user-list {
+    text-align: center;
+  }
+  
+  .styled-table {
+    position: relative;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    left: 40%;
+    margin-top: 100px;
+  }
+  
+  .styled-table thead th {
+    background-color: #d8dddd;
+    color: #141313;
+    text-align: left;
+  }
+  
+  .styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
