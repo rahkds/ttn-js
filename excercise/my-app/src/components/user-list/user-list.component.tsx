@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import './user-list.styles.scss';
 
 interface UserListProps {
@@ -12,20 +12,22 @@ const UserList : FC<UserListProps> = ({users}) :  React.JSX.Element => {
             <div className='user-list'>
                 <table className='styled-table'>
                 <thead>
-                    <th>Sr No.</th>
-                    <th>User name</th>
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>User name</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {users.length  ? (
                     users.map((username:string, idx : number) => {
                         return  (
-                        <tr>
-                        <td>{idx+1}</td>
-                        <td>{username}</td>
+                        <tr key={idx}>
+                            <td>{idx+1}</td>
+                            <td>{username}</td>
                         </tr>
                         )
                     })
-                    ) : ''}                              
+                    ) : null}                              
                 </tbody>
                 </table>
             </div>

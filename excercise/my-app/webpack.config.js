@@ -1,5 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// const webpack = require('webpack');
+
 
 module.exports = {
   entry: './src/index.tsx',
@@ -10,10 +12,14 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
   },
-  plugins: [
+  plugins: [ 
     new HtmlWebpackPlugin({
       template: "./public/index.html", 
+      templateParameters: {
+        PUBLIC_URL : ''
+      },
     }),
+
   ],
   devServer: {
     port: 3000, 

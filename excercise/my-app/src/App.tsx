@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import UserList from './components/user-list/user-list.component';
 import AddUser from './components/add-user/add-user.componenet';
