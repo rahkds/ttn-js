@@ -1,12 +1,12 @@
 import { Link, Outlet } from "react-router-dom";
 import {ReactComponent as CrwnLogo} from './../../assets/crown.svg';
-import './navigation.styles.scss';
-import { UserContext } from "../../contexts/user.context";
+import { UserContext } from "../../contexts/user.context.jsx";
 import { useContext } from "react";
-import { signOutUser } from "../../utils/firebase/firebase.utils";
-import CartIcon from "../../components/cart-icon/cart-icon.component";
-import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component";
-import { CartContext } from "../../contexts/cart.context";
+import { signOutUser } from "../../utils/firebase/firebase.utils.js";
+import CartIcon from "../../components/cart-icon/cart-icon.component.jsx";
+import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component.jsx";
+import { CartContext } from "../../contexts/cart.context.jsx";
+import  {NavigationContainer } from './navigation.styles.jsx';
 
 
 const Navigation= () => {
@@ -18,8 +18,8 @@ const Navigation= () => {
 
     return (
       <>
-        <div className="navigation">
-            <Link  className='logo-container' to='/'>
+        <NavigationContainer>
+            {/* <Link  className='logo-container' to='/'>
                 <CrwnLogo/>
             </Link>
             <div className="nav-links-container">
@@ -37,8 +37,8 @@ const Navigation= () => {
                 }
                 <CartIcon/>
             </div>
-            {isCartOpen && <CartDropDown/>}
-        </div>
+            {isCartOpen && <CartDropDown/>} */}
+        </NavigationContainer>
         <Outlet/>
       </>
     )
