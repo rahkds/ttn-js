@@ -5,14 +5,14 @@ import Category from '../category/category.component';
 
 import './shop.styles.scss';
 // import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils';
-import { fetchCategoriesAsync } from '../../store/categories/category.action';
+import { fetchCategoriesStart } from '../../store/categories/category.action';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 const Shop = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-      dispatch(fetchCategoriesAsync());
+      dispatch(fetchCategoriesStart());
   }, []);
 
   return (
