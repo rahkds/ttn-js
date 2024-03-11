@@ -6,7 +6,7 @@ export const getDataStore = (connectionType = 'slave') => {
     const pool = connectionType == 'slave' ? slavePool : masterPool;
     return {
         pool,
-        execQuery : (query, params = []) => {
+        execQuery : (query : string, params = []) => {
             return new Promise((resolve, reject) => {
                 pool.query(query, params, (error, results, fields) => {
                     if (error) reject(error);

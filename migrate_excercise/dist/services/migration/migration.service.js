@@ -15,7 +15,16 @@ const users_service_1 = require("../users/users.service");
 const migrationStart = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let csvData = yield csv_util_1.csvUtilObj.readFile('/home/rahul/Downloads/dummy_migration_data.csv');
-        (0, users_service_1.addUserData)(csvData.data);
+        let userArr = yield (0, users_service_1.addUserData)(csvData.data);
+        const totalRecords = userArr.length;
+        const errorRecords = userArr.reduce((accum, curr) => {
+            if (curr && curr.status_info && curr.status_info['status'] == 'error') {
+                return accum + 1;
+            }
+            return accum;
+        }, 0);
+        console.log("totalRecords === ", totalRecords);
+        console.log("errorRecords === ", errorRecords);
         // let rows = await mysqlUtil.getDataStore("master").execQuery("select * from users");
         // console.log("rows === ", rows);
     }

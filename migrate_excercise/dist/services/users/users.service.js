@@ -34,20 +34,40 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addUserData = void 0;
 const mysqlUtil = __importStar(require("../../utils/mysql/mysql.util"));
+const user_validator_1 = require("../../validators/user.validator");
 const addUserData = (userArray) => __awaiter(void 0, void 0, void 0, function* () {
-    //console.log(userArray);
-    //userArray = userArray.slice(0,5);
+    userArray = userArray.slice(0, 5);
     for (let userInfo of userArray) {
-        let insertSql = `INSERT INTO barry_users(case_reference, account_number, first_name, customer_number, case_outcome) 
-        VALUES(?,?,?,?,?);`;
-        let rows = yield mysqlUtil.getDataStore("master").execQuery(insertSql, [
-            userInfo.case_reference,
-            userInfo.account_number,
-            userInfo.first_name,
-            userInfo.customer_number,
-            userInfo.case_outcome,
-        ]);
-        console.log(rows);
+        try {
+            userInfo['status_info'] = {
+                status: 'success',
+                errMsg: null
+            };
+            const { error, value } = user_validator_1.userJoiSchema.validate(userInfo);
+            if (error) {
+                const errMsg = error.details && error.details[0].message || '';
+                userInfo['status_info']['status'] = 'error';
+                userInfo['status_info']['errMsg'] = errMsg;
+                continue;
+            }
+            // console.error("userJoiSchema == ", error);
+            let insertSql = `INSERT INTO barry_users(case_reference, account_number, first_name, customer_number, case_outcome) 
+            VALUES(?,?,?,?,?);`;
+            let rows = yield mysqlUtil.getDataStore("master").execQuery(insertSql, [
+                userInfo.case_reference,
+                userInfo.account_number,
+                userInfo.first_name,
+                userInfo.customer_number,
+                userInfo.case_outcome,
+            ]);
+            console.log(rows);
+        }
+        catch (error) {
+            // console.error("Error ==== ", error);
+            userInfo['status_info']['status'] = 'error';
+            userInfo['status_info']['errMsg'] = error.toString();
+        }
+        return userArray;
     }
 });
 exports.addUserData = addUserData;
