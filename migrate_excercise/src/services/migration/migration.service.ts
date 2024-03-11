@@ -5,8 +5,8 @@ import {logger} from '../../utils/logger/logger';
 
 export const migrationStart = async () => {
     try {
-        let fileName:string = '/home/rahul/Downloads/dummy_migration_data.csv';
-        let csvData:ReadFileResp = await csvUtilObj.readFile(fileName);
+        let fileName:string = 's3://monthlyinvoice/dummy_migration_data.csv';
+        let csvData:ReadFileResp = await csvUtilObj.readFileFromS3("monthlyinvoice", 'dummy_migration_data.csv');
         let statusArr = await addUserData(csvData.data);
         await logMigrationData(statusArr, fileName);
     } catch (error) {

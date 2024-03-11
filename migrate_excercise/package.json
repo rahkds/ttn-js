@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/aws-sdk": "^2.7.0",
     "@types/mysql": "^2.15.25",
     "@types/node": "^20.11.25",
     "@types/winston": "^2.4.4",
@@ -25,7 +26,9 @@
     "typescript": "^5.4.2"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.529.1",
     "@types/joi": "^17.2.3",
+    "aws-sdk": "^2.1574.0",
     "csv": "^6.3.8",
     "dotenv": "^16.4.5",
     "joi": "^17.12.2",
