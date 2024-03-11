@@ -1,4 +1,4 @@
 export interface ReadFileResp {
-    headers : any[],
+    // headers : any[],
     data : any[]
 }

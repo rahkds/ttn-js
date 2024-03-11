@@ -1,5 +1,5 @@
 import './init';
-import {migrationStart} from './services/migration.service'
+import {migrationStart} from './services/migration/migration.service'
 
 migrationStart();
 
