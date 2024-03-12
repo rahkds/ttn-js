@@ -5,11 +5,14 @@ import {logger} from '../../utils/logger/logger';
 
 export const migrationStart = async () => {
     try {
+        logger.log({msg : "migration process started"});
         let fileName:string = 's3://monthlyinvoice/dummy_migration_data.csv';
         let csvData:ReadFileResp = await csvUtilObj.readFileFromS3("monthlyinvoice", 'dummy_migration_data.csv');
         let statusArr = await addUserData(csvData.data);
         await logMigrationData(statusArr, fileName);
+        logger.log({msg : "migration process end"});
     } catch (error) {
+        logger.log({msg : "error occured during process ", error : error});
         console.error("Error", error);
     }
 }

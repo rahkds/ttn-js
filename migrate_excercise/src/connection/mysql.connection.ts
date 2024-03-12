@@ -1,18 +1,5 @@
 import mysql from "mysql";
 
-/*
-
-MYSQL_MASTER_DB_HOST=localhost
-MYSQL_MASTER_DB_USER=root
-MYSQL_MASTER_DB_PASS=Rah$Ttn123
-MYSQL_MASTER_DB_NAME=barry
-
-MYSQL_SLAVE_DB_HOST=localhost
-MYSQL_SLAVE_DB_USER=root
-MYSQL_SLAVE_DB_PASS=Rah$Ttn123
-MYSQL_SLAVE_DB_NAME=barry
-
-*/
 export const masterPool  = mysql.createPool({
     connectionLimit : 10,
     host            : process.env.MYSQL_MASTER_DB_HOST,
