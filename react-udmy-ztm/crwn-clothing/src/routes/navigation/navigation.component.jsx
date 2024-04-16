@@ -6,7 +6,7 @@ import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component
 import  {NavigationContainer, NavLinks, NavLink, LogoContainer } from './navigation.styles.jsx';
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector.js";
-import { selectIsCartOpen } from "../../store/cart/cart.selector.js";
+import { selectIsCartOpen } from "../../store/cart/cart.selector";
 import { signOutStart } from "../../store/user/user.action.js";
 
 const Navigation= () => {
