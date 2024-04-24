@@ -4,8 +4,8 @@ import {AnyAction} from "redux-saga";
 
 
 export type CartState = {
-  isCartOpen :  boolean,
-  cartItems : CartItem[]
+  readonly isCartOpen :  boolean,
+  readonly cartItems : CartItem[]
 }
 
 export const CART_INTITAL_STATE : CartState = {
