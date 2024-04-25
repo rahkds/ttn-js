@@ -1,13 +1,13 @@
 import { Link, Outlet } from "react-router-dom";
 import {ReactComponent as CrwnLogo} from './../../assets/crown.svg';
-import { signOutUser } from "../../utils/firebase/firebase.utils.js";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart-icon/cart-icon.component.jsx";
 import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component.jsx";
 import  {NavigationContainer, NavLinks, NavLink, LogoContainer } from './navigation.styles.jsx';
 import { useDispatch, useSelector } from "react-redux";
-import { selectCurrentUser } from "../../store/user/user.selector.js";
+import { selectCurrentUser } from "../../store/user/user.selector";
 import { selectIsCartOpen } from "../../store/cart/cart.selector";
-import { signOutStart } from "../../store/user/user.action.js";
+import { signOutStart } from "../../store/user/user.action";
 
 const Navigation= () => {
     const dispatch = useDispatch();
