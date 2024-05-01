@@ -1,7 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import {ReactComponent as CrwnLogo} from './../../assets/crown.svg';
 import { signOutUser } from "../../utils/firebase/firebase.utils";
-import CartIcon from "../../components/cart-icon/cart-icon.component.jsx";
+import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component.jsx";
 import  {NavigationContainer, NavLinks, NavLink, LogoContainer } from './navigation.styles.jsx';
 import { useDispatch, useSelector } from "react-redux";
